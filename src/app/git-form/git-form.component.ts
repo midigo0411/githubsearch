@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./git-form.component.css']
 })
 export class GitFormComponent implements OnInit {
+  submitUsername(){}
 
-  
   constructor() { }
 
   ngOnInit(): void {
