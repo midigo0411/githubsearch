@@ -46,6 +46,14 @@ export class GithubServiceService {
           this.newUserData = new Repository(response[1].name, response[1].description, response[1].updated_at, response[1].clone_url, response[1].language){
             this.repoData.push(this.newUserData);
         }
+        resolve()
+    },
+    error=>{
+      reject(error)
+    
     })
-    })
+
+  })
+  return promise;
+}
 }
