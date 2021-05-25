@@ -10,7 +10,7 @@ export class GithubServiceService {
   user: User;
   repository: Repository;
   repoData = [];
-  newUserData: any;
+  newUserData: any = [];
 
   constructor(private http: HttpClientModule) { 
     this.user = new User("", 0, "", "", new Date());
@@ -41,9 +41,10 @@ export class GithubServiceService {
         reject(error)
       
       })
-      this.http.get<any>("https://api.github.com/users/" + username).toPromise().then(response=>{
-        for(let i=0, i<response.length; i++) {
-          this.getUserData = new Respository(response[1].name, response[1].description, response[1].updated_at, response[1].clone_url, response[1].language)
+      this.http.get<any>("https://api.github.com/users/" + username + "/repos").toPromise().then(response=>{
+        for(var i=0; i<response.length; i++)
+          this.newUserData = new Repository(response[1].name, response[1].description, response[1].updated_at, response[1].clone_url, response[1].language){
+            this.repoData.push(this.newUserData);
         }
     })
     })
