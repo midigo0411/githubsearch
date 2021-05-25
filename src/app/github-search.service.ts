@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { User } from './user';
 import { Repository } from './repository';
-import { getMissingNgModuleMetadataErrorData } from '@angular/compiler';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,5 +25,22 @@ export class GithubServiceService {
       created_at: Date
     
     }
+    
+    let promise = new Promise ((resolve,reject)=>{
+      this.http.get<ApiResponse>("https://api.github.com/users/" + username).toPromise().then(response=>{
+        this.user.bio = response.bio;
+        this.user.public_repos = response.public_repos; 
+        this.user.login = response.login; 
+        this.user.avatar_url = response.avatar_url; 
+        this.user.created_at = response.created_at;
+
+        resolve()
+      },
+      error=>{
+        reject(error)
+      
+      )
+      
+    })
   }
 }
