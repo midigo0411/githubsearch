@@ -16,7 +16,9 @@ export class GithubResultComponent implements OnInit {
 	}
 
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.user = this.GithubServiceService.user;
+    this.repoDetails = this.GithubServiceService.repoData;
   }
 
 }
