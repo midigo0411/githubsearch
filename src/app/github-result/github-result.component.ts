@@ -7,8 +7,14 @@ import { User } from '../user'
   styleUrls: ['./github-result.component.css']
 })
 export class GithubResultComponent implements OnInit {
+  user: User;
+  repoDetails = []
+  GithubServiceService: GithubServiceService;
 
-  constructor() { }
+  constructor(GithubServiceService:GithubServiceService) { 
+		this.GithubServiceService = GithubServiceService;
+	}
+
 
   ngOnInit(): void {
   }
