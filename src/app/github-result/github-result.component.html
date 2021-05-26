@@ -1,24 +1,23 @@
-<div class="card bg-dark text-light">
-    <div class="card-body bg-dark">
-        <div class="row">
-            <div class="col-md-6 my-4">
-                <h5 appColor ><span class="text-info mb-3 mt-3">Name: </span> {{user.login}} </h5>
+<div class="row mb50 mt100">
+    <div class="col-md-1"></div>
+    <div class="col-md-4 profile text-right">
+        <h4>{{user.login}}</h4>
                 <span class="text-info"> User Avatar:  <img src="{{ user.avatar_url}}" alt=""></span>
                 <p appColor class="lead mt-3 mb-3"><span  class="text-info">Bio: </span> {{user.bio}} </p>
                 <p appColor class="lead mt-3 mb-3"><span class="text-info">Created at: </span> {{user.created_at | date}} </p>
                 <p appColor class="lead mt-3 mb-3"><span class="text-info">Public repos: </span> {{user.public_repos}} </p>
             </div>
-            <div class="col-md-6">
+            
+            <div class="col-md-5">
                 <div *ngFor = "let repoDetail of repoDetails">
-                <h5><span class="text-info">Repository name: </span> {{repoDetail.name}} </h5>
-                <p class="lead mt-3 mb-3"><span class="text-success">Description: </span> {{repoDetail.description}} </p>
-                <p class="lead mt-3 mb-3"><span class="text-success">Updated: </span> {{repoDetail.updated_at | date}} </p>
-                <p class="lead mt-3 mb-3"><span class="text-success">Clone url: </span> {{repoDetail.clone_url}} </p>
-                <p class="lead mt-3 mb-3"><span class="text-success">Languages: </span> {{repoDetail.language}} </p> 
+                <h5><span class="text-info">Repository name: </span> {{repoDetails.name}} </h5>
+                <p class="lead mt-3 mb-3"><span class="text-success">Description: </span> {{repoDetails.description}} </p>
+                <p class="lead mt-3 mb-3"><span class="text-success">Updated: </span> {{repoDetails.updated_at | date}} </p>
+                <p class="lead mt-3 mb-3"><span class="text-success">Clone url: </span> {{repoDetails.clone_url}} </p>
+                <p class="lead mt-3 mb-3"><span class="text-success">Languages: </span> {{repoDetails.language}} </p> 
                 <br>
                 <hr>
             </div>
             </div>
         </div>
-    </div>
-</div>
+    
