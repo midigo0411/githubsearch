@@ -52,7 +52,8 @@ export class GithubServiceService {
     error=>{
       reject(error)
     
-    })
+    }
+    )
 
   })
   return promise;
