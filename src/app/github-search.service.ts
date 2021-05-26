@@ -29,7 +29,7 @@ export class GithubServiceService {
     }
     
     let promise = new Promise<void> ((resolve,reject)=>{
-      this.http.get<ApiResponse>("https://api.github.com/users/" + username).toPromise().then(response=>{
+      this.http.get<ApiResponse>("https://api.github.com/users/" + {username}).toPromise().then(response=>{
         this.user.bio = response.bio;
         this.user.public_repos = response.public_repos; 
         this.user.login = response.login; 
@@ -42,7 +42,7 @@ export class GithubServiceService {
         reject(error)
       
       })
-      this.http.get<any>("https://api.github.com/users/" + username + "/repos").toPromise().then(response=>{
+      this.http.get<any>("https://api.github.com/users/" + {username} + "/repos").toPromise().then(response=>{
         for(var i=0; i<response.length; i++)
           this.newUserData = new Repository(response[1].name, response[1].description, response[1].updated_at, response[1].clone_url, response[1].language);{
             this.repoData.push(this.newUserData);

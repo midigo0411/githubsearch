@@ -1,33 +1,24 @@
-<div class="row mb50 mt100">
-    <div class="col-md-1"></div>
-    <div class="col-md-4 profile text-right">
-        <h4>{{user.login}}</h4>
-        <img src="{{GithubServiceService .user.avatar_url}}">
-        <p class="bio">{{user.bio}}</p>
-        <p class="stat">Date Joined: <strong>{{user.created_at|date}}</strong></p>
-        <p class="stat">Number of Repos: <strong>{{user.public_repos}}</strong></p>
-        
-    </div>
-    <div class="col-md-3"></div>
-    <div class="col-md-5">
-    <hr>
-     <div class="panel panel-default" >
-        <div class="panel-heading">
-            <h3 class="panel-title"></h3>
+<div class="card bg-dark text-light">
+    <div class="card-body bg-dark">
+        <div class="row">
+            <div class="col-md-6 my-4">
+                <h5 appColor ><span class="text-info mb-3 mt-3">Name: </span> {{user.login}} </h5>
+                <span class="text-info"> User Avatar:  <img src="{{ user.avatar_url}}" alt=""></span>
+                <p appColor class="lead mt-3 mb-3"><span  class="text-info">Bio: </span> {{user.bio}} </p>
+                <p appColor class="lead mt-3 mb-3"><span class="text-info">Created at: </span> {{user.created_at | date}} </p>
+                <p appColor class="lead mt-3 mb-3"><span class="text-info">Public repos: </span> {{user.public_repos}} </p>
+            </div>
+            <div class="col-md-6">
+                <div *ngFor = "let repoDetail of repoDetails">
+                <h5><span class="text-info">Repository name: </span> {{repoDetail.name}} </h5>
+                <p class="lead mt-3 mb-3"><span class="text-success">Description: </span> {{repoDetail.description}} </p>
+                <p class="lead mt-3 mb-3"><span class="text-success">Updated: </span> {{repoDetail.updated_at | date}} </p>
+                <p class="lead mt-3 mb-3"><span class="text-success">Clone url: </span> {{repoDetail.clone_url}} </p>
+                <p class="lead mt-3 mb-3"><span class="text-success">Languages: </span> {{repoDetail.language}} </p> 
+                <br>
+                <hr>
+            </div>
+            </div>
         </div>
-        <div class="panel-body repo-detail">                    
-            <div class="git-results">                        
-                <div class="media mb15" *ngFor='let repoDetail of repoDetails'><
-                    <div class="media-body">
-                      <h4 class="filename text-success"><a href="{{repoDetail.html_url}}" target="_blank">{{repoDetail.name}}</a></h4>
-                      <small class="last-update">Created At: <strong>{{repoDetail.created_at|date}}</strong>&nbsp;&nbsp;|&nbsp;&nbsp;<i class="fa fa-clone" aria-hidden="true"></i>&nbsp;&nbsp;Clone:&nbsp;&nbsp;<strong appCloneHighlighter>{{repoDetail.clone_url}}</strong></small>
-                      <p class="description">{{repoDetail.description}}</p>
-                      <small class="last-update">Language: <strong>{{repoDetail.language}}</strong>&nbsp;&nbsp;|&nbsp;&nbsp;Last Updated: <strong>{{repoDetail.updated_at|daysCount}} Days Ago</strong></small>
-                  </div>
-              </div>                       
-          </div>                  
-      </div>
     </div>
-    </div>
-        <div class="col-md-1"></div>
-    </div>
+</div>
