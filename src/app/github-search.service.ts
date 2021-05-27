@@ -43,17 +43,15 @@ export class GithubServiceService {
       
       })
       this.http.get<any>("https://api.github.com/users/" + username + "/repos").toPromise().then(response=>{
-        for(var i=0; i<response.length; i++)
-          this.newUserData = new Repository(response[1].name, response[1].description, response[1].updated_at, response[1].clone_url, response[1].language);{
+        for(let i=0; i<response.length; i++){
+          this.newUserData = new Repository(response[i].name, response[i].description, response[i].updated_at, response[i].clone_url, response[i].language)
             this.repoData.push(this.newUserData)
         }
         resolve(response)
-    },
-    error=>{
+    }, error=>{
       reject(error)
     
-    }
-    )
+    })
 
   })
   return promise;
