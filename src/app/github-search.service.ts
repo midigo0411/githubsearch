@@ -24,7 +24,7 @@ export class GithubServiceService {
       public_repos: number, 
       login: string, 
       avatar_url: string,
-      created_at: Date
+      created_at: Date,
     
     }
     
