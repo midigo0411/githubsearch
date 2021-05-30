@@ -1,17 +1,11 @@
- 
-    <h1 class="text-center border rounded m-3 p-5 bg-blue text-info"> {{title}} </h1>
-  
-    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ">
+<div class="container">
+  <h1>{{title}}</h1>
+  <div class="row">
+      <div class="col-md-12">
           <a class="btn btn-outline-info btn-sm mx-3" routerLink = "/gitForm" >Search</a>
-          <a class="btn btn-outline-info btn-sm mx-3" routerLink = "/githubResult" >See Results</a>
-        </div>
+          <a class="btn btn-outline-info btn-sm mx-3" routerLink = "/githubResult" >See Results</a> 
       </div>
-    </nav>
-
-
-  <router-outlet></router-outlet>
+      
+  </div>
+</div>
+<router-outlet></router-outlet>

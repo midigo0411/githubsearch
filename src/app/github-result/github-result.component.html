@@ -1,23 +1,69 @@
-<div class="row mb50 mt100">
-    <div class="col-md-1"></div>
-    <div class="col-md-4 profile text-right">
-        <h4>{{user.login}}</h4>
-                <span class="text-info"> User Avatar:  <img src="{{ user.avatar_url}}" alt=""></span>
-                <p appColor class="lead mt-3 mb-3"><span  class="text-info">Bio: </span> {{user.bio}} </p>
-                <p appColor class="lead mt-3 mb-3"><span class="text-info">Created at: </span> {{user.created_at | date}} </p>
-                <p appColor class="lead mt-3 mb-3"><span class="text-info">Public repos: </span> {{user.public_repos}} </p>
+<div class="container">
+    <section class="mt-5 wow fadeIn">
+
+            <!--Grid row-->
+        <div class="row">
+
+            <!--Grid column-->
+            <div class="col-md-6 mb-4">
+                <img src='{{user.avatar_url}}' class="img-fluid z-depth-1-half" alt="">
             </div>
-            
-            <div class="col-md-5">
-                <div *ngFor = "let repoDetail of repoDetails">
-                <h5><span class="text-info">Repository name: </span> {{repoDetails.name}} </h5>
-                <p class="lead mt-3 mb-3"><span class="text-success">Description: </span> {{repoDetail.description}} </p>
-                <p class="lead mt-3 mb-3"><span class="text-success">Updated: </span> {{repoDetail.updated_at | date}} </p>
-                <p class="lead mt-3 mb-3"><span class="text-success">Clone url: </span> {{repoDetail.clone_url}} </p>
-                <p class="lead mt-3 mb-3"><span class="text-success">Languages: </span> {{repoDetail.language}} </p> 
-                <br>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-6 mb-4">
+                <!-- card start -->
+                <!-- Card -->
+            <div class="card">
+        <!-- Card content -->
+             <div class="card-body">
+
+        <!-- Title -->
+                 <h4 class="card-title animated fadeInRight" ><p class="text-info"> Gittracer: {{user.login}}</p></h4>
                 <hr>
-            </div>
+                 <!-- Text -->
+                    <ul class=" card-text list-group list-group-flush">
+                        <li class="list-group-item animated fadeInRight"> <i class="fas fa-user-friends"></i> Followers: {{user.bio}}</li>
+
+                        <li class="list-group-item animated fadeInRight"> <i class="fas fa-folder-open"></i> No of public repos: {{user.public_repos}}</li>
+
+                        <li class="list-group-item animated fadeInRight"> <i class="far fa-clock pr-1"></i> Joined on: {{user.created_at|date}}</li>
+                        </ul>
+
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
+</div>
+    
+    <section>
+
+        <div class="row wow fadeIn">
+    
+
+
+             <div class="col-md-4 card" *ngFor="let repoDetail of repoDetails">
+
+                <!-- <div class="card"> -->
+                    <!-- Card content -->
+                    <div class="card-body ">
+                    <!-- Title -->
+                    <h4 class="card-title animated fadeInRight" ><p class="text-info">  {{repoDetails.name}}</p></h4>
+                    <hr>
+                    <!-- Text -->
+                    <ul class=" card-text list-group list-group-flush">
+                        <li class="list-group-item animated fadeInRight"> <i class="fas fa-fingerprint"></i> Description: {{repoDetail.description}}</li>
+                
+                        <li class="list-group-item animated fadeInRight"> <i class="fas fa-globe-americas"></i> Creation date: {{repoDetail.updated_at | date}}</li>
+                
+                        <li class="list-group-item animated fadeInRight"> <i class="fas fa-file-signature"></i> Repo url: {{repoDetail.clone_url}}</li>
+                            <li class="list-group-item animated fadeInRight"> <i class="fas fa-file-signature"></i> Language: {{repoDetail.language}}</li>
+                        </ul>
+                </div>
+            </div>
+        </div>       
+
+    </section>
+
     
